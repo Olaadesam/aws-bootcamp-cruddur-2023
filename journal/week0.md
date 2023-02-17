@@ -18,7 +18,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 ```
-!.[Installing AWS CLI].(Assets/CLI.png)
+![Installing AWS CLI].(Assets/CLI.png)
 
 # Home work challenge
 
