@@ -18,7 +18,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 ```
-![Installing AWS CLI].(Assets/CLI.png)
+![Installing AWS CLI](Assets/CLI.png)
 
 # Home work challenge
 
@@ -30,7 +30,7 @@ But I pin the CLI code in my repo and I am sure it will work and also inother to
 
 # Image showing the budget and billing alarm created.
 
-!.[AWS Budget and billing].(Assets/budget.png)
+![AWS Budget and billing](Assets/budget.png)
 
 ## Logical Diagram creation
 
@@ -40,10 +40,10 @@ Because of this, I could not complete the logical diagram.
 
 Image for the logical diagram
 
-!.[Installing AWS CLI].(Assets/Cruddur_logical.png)
+![Cruddur Logical diagram](Assets/Cruddur_logical.png)
 
 Image of the conceptual diagram
-!.[Conceptual].(Assets/Cruddur_conceptual.png)
+![Cruddur Conceptual diagram](Assets/Cruddur_conceptual.png)
 
 Link to the LucidChart diagram
 ```
@@ -52,14 +52,14 @@ https://lucid.app/lucidchart/166b8199-eb98-4781-9c90-f168f35e218d/edit?page=0_0&
 I add two diagram in the LucidChart link, conceptual and logical
 
 Image for the AWS Well Architecture Framework 
-!.[Architecture].(Assets/AWS_Well_Architected_Questions.png)
+![AWS Well Architecture Framework Questions](Assets/AWS_Well_Architected_Questions.png)
 
-!.[Arch 2].(Assets/AWS_Well_architecture_2.png)
+![AWS Well Architecture Framework Questions_2](Assets/AWS_Well_architecture_2.png)
 
 ### AWS Organization
 
 I was able to create organization as part of the security measure
-!.[AWS OU].(Assets/OU_image.png)
+![AWS Organzation creation](Assets/OU_image.png)
 
 
 ### My homework challage for Week 0 
