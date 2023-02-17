@@ -30,7 +30,7 @@ But I pin the CLI code in my repo and I am sure it will work and also inother to
 
 # Image showing the budget and billing alarm created.
 
-!.[Installing AWS CLI].(Assets/budget.png)
+!.[AWS Budget and billing].(Assets/budget.png)
 
 ## Logical Diagram creation
 
@@ -43,7 +43,7 @@ Image for the logical diagram
 !.[Installing AWS CLI].(Assets/Cruddur_logical.png)
 
 Image of the conceptual diagram
-!.[Installing AWS CLI].(Assets/Cruddur_conceptual.png)
+!.[Conceptual].(Assets/Cruddur_conceptual.png)
 
 Link to the LucidChart diagram
 ```
@@ -52,14 +52,14 @@ https://lucid.app/lucidchart/166b8199-eb98-4781-9c90-f168f35e218d/edit?page=0_0&
 I add two diagram in the LucidChart link, conceptual and logical
 
 Image for the AWS Well Architecture Framework 
-!.[Installing AWS CLI].(Assets/AWS_Well_Architected_Questions.png)
+!.[Architecture].(Assets/AWS_Well_Architected_Questions.png)
 
-!.[Installing AWS CLI].(Assets/AWS_Well_architecture_2.png)
+!.[Arch 2].(Assets/AWS_Well_architecture_2.png)
 
 ### AWS Organization
 
 I was able to create organization as part of the security measure
-!.[Installing AWS CLI].(Assets/OU_image.png)
+!.[AWS OU].(Assets/OU_image.png)
 
 
 ### My homework challage for Week 0 
