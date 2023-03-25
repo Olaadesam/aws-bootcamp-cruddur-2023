@@ -1,0 +1,9 @@
+Honeycomb keys
+
+export HONEYCOMB_API_KEY="YSnwma0KsdWBwfkVuNemwK"
+gp env HONEYCOMB_API_KEY="YSnwma0KsdWBwfkVuNemwK"
+
+export HONEYCOMB_API_KEY_SERVICE_NAME="Cruddur"
+gp env HONEYCOMB_API_KEY_SERVICE_NAME="Cruddur"
+
+cd 
