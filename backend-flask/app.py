@@ -25,6 +25,22 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 
+# Instrument Honeycomb for the frontend-application to observe network latency between frontend and backend[HARD]_challenge
+import libhoney
+import requests
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# instrument: Set up the Honeycomb exporter:_homework challenge
+
+honeycomb_key = os.environ.get("HONEYCOMB_API_KEY")
+honeycomb_dataset = os.environ.get("HONEYCOMB_DATASET")
+honeycomb_exporter = HoneycombSpanExporter(
+    writekey=honeycomb_key,
+    dataset=honeycomb_dataset,
+)
+
+
 # Honeycomb
 # Initialize tracing and an exporter that can send data to Honeycomb
 provider = TracerProvider()
@@ -42,11 +58,41 @@ tracer = trace.get_tracer(__name__)
 
 app = Flask(__name__)
 
+# Honecomb instrument_homework challenge
+
+@app.route('/')
+def index():
+    with tracer.start_as_current_span('frontend-request'):
+        response = requests.get('https://4567-olaadesam-awsbootcampcr-81kgeozzzwr.ws-us92.gitpod.io:4567')
+
+        #response = requests.get('http://backend-service')
+    return response.text
+
+
 #Honeycomb ... 
 # Initialize automatic instrumentation with Flask
 
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
+
+#challenge
+RequestsInstrumentor().instrument(tracer_provider=trace.get_tracer_provider())
+
+
+#Chqallenge
+honeycomb_client = libhoney.Client(writekey=honeycomb_key, dataset=honeycomb_dataset)
+
+def on_span_end(span):
+    if span.name == 'frontend-request':
+        latency_ms = span.end_time - span.start_time
+        event = {
+            'type': 'frontend-request',
+            'duration_ms': latency_ms / 1000000,
+        }
+        honeycomb_client.send_now(event)
+
+trace.get_tracer_provider().add_span_processor(libhoney.SpanProcessor(on_span_end=on_span_end))
+
 
 
 frontend = os.getenv('FRONTEND_URL')

@@ -1,8 +1,11 @@
-* { box-sizing: border-box; }
-html,body { 
-  height: 100%; 
-  width: 100%; 
-  background: rgb(14,3,28);
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: rgb(77, 41, 155); /* Change background color to light gray */
 }
 
 body {
@@ -12,6 +15,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(73, 25, 136); /* Change background color of conversation area to dark */
+  color: #fff; /* Set font color to white */
 }
 
 code {
