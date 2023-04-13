@@ -25,6 +25,12 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
 
+# X-RAY ---------
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+
+
+
 # Instrument Honeycomb for the frontend-application to observe network latency between frontend and backend[HARD]_challenge
 import libhoney
 import requests
@@ -46,6 +52,11 @@ honeycomb_exporter = HoneycombSpanExporter(
 provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
+
+# X_RAY ---------
+xray_url = os.getenv("AWS_XRAY_URL")
+xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+XRayMiddleware(app, xray_recorder)
 
 # Show log within the backend flask STDOUT honeycomb
 
