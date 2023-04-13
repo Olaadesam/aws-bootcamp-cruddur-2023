@@ -4,11 +4,25 @@
 
 ![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
 
-![Cruddur Screenshot](_docs/assets/cruddur-screenshot.png)
+![Cruddur Screenshot](_docs/assets/cruddur1.png)
 
 ## Instructions
 
-At the start of the bootcamp you need to create a new Github Repository from this template.
+In this project the following will be implemented and arranged into each of the weekly journal from the link below.
+
+Week 0 — Set-up billing on AWS and architecture design of the application
+Week 1 — Containerize the App
+Week 2 — Implement Distributed Tracing in the App
+Week 3 — Decentralized Authentication
+Week 4 — Implement Postgres and RDS
+Week 5 — DynamoDB and Serverless Caching
+Week 6 — Deploying “Serverless” Containers
+Week 7 — Solving CORS with a Load Balancer and Custom Domain
+Week 8 — Serverless Image Processing
+Week 9 — CI/CD with CodePipeline, CodeBuild and CodeDeploy
+Week 10 — CloudFormation Part 1
+Week 11 — CloudFormation Part 2
+Week 12 — Modern APIs
 
 ## Journaling Homework
 
