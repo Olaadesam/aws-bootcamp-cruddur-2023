@@ -1,4 +1,4 @@
-# FREE AWS Cloud Project Bootcamp
+# Project - BUILDING Cruddur application on AWS 
 
 - Application: Cruddur
 - Cohort: 2023-A1
