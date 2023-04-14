@@ -12,3 +12,6 @@ aws-xray-sdk
 libhoney
 
 watchtower
+
+blinker
+rollbar
