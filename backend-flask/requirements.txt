@@ -10,3 +10,5 @@ opentelemetry-instrumentation-requests
 aws-xray-sdk
 
 libhoney
+
+watchtower

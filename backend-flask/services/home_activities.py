@@ -1,10 +1,16 @@
 from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
 
+import logging
+
 tracer = trace.get_tracer("home.activities")
 
 class HomeActivities:
   def run():
+    
+    # CLoudwatch code - def run(Logger):
+    #Logger.info('HomeActivities')
+
     with tracer.start_as_current_span("home-activities_test_traffic_data"):
       now = datetime.now(timezone.utc).astimezone()
       results = [{
