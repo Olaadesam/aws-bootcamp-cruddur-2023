@@ -24,6 +24,8 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+#from opentelemetry.exporter.honeycomb import HoneycombSpanExporter
+#from opentelemetry.ext.honeycomb import HoneycombSpanExporter
 
 # X-RAY ---------
 from aws_xray_sdk.core import xray_recorder
@@ -41,10 +43,11 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 honeycomb_key = os.environ.get("HONEYCOMB_API_KEY")
 honeycomb_dataset = os.environ.get("HONEYCOMB_DATASET")
-honeycomb_exporter = HoneycombSpanExporter(
-    writekey=honeycomb_key,
-    dataset=honeycomb_dataset,
-)
+#exporter1 = HoneycombSpanExporter(
+ #   service_name="test-service",
+  #  writekey=honeycomb_key,
+   # dataset=honeycomb_dataset,
+#)
 
 
 # Honeycomb
@@ -56,18 +59,31 @@ provider.add_span_processor(processor)
 # X_RAY ---------
 xray_url = os.getenv("AWS_XRAY_URL")
 xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
-XRayMiddleware(app, xray_recorder)
+
 
 # Show log within the backend flask STDOUT honeycomb
 
 simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
 provider.add_span_processor(simple_processor)
 
+#adding
+#trace.get_tracer_provider().add_span_processor(BatchSpanProcessor(exporter1))
+
 trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
 
+#tracer = trace.get_tracer(__name__)
+
+#with tracer.start_as_current_span('span_one'):
+ #   with tracer.start_as_current_span('span_two'):
+  #      with tracer.start_as_current_span('span_three'):
+   #         print("Hello, from a child span")
+
+
 app = Flask(__name__)
+# X-RAY ------------
+XRayMiddleware(app, xray_recorder)
 
 # Honecomb instrument_homework challenge
 
@@ -87,11 +103,11 @@ FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 
 #challenge
-RequestsInstrumentor().instrument(tracer_provider=trace.get_tracer_provider())
+#RequestsInstrumentor().instrument(tracer_provider=trace.get_tracer_provider())
 
 
-#Chqallenge
-honeycomb_client = libhoney.Client(writekey=honeycomb_key, dataset=honeycomb_dataset)
+#Challenge
+#honeycomb_client = libhoney.Client(writekey=honeycomb_key, dataset=honeycomb_dataset)
 
 def on_span_end(span):
     if span.name == 'frontend-request':
@@ -102,7 +118,7 @@ def on_span_end(span):
         }
         honeycomb_client.send_now(event)
 
-trace.get_tracer_provider().add_span_processor(libhoney.SpanProcessor(on_span_end=on_span_end))
+#trace.get_tracer_provider().add_span_processor(libhoney.SpanProcessor(on_span_end=on_span_end))
 
 
 
